@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare Premium | Honduras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        .btn-premium { transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .btn-premium:active { transform: scale(0.95); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-900">
+
+    <nav class="fixed w-full z-[100] glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-orange-500 p-2 rounded-xl shadow-lg shadow-orange-200">
+                    <i data-lucide="paw-print" class="text-white w-6 h-6"></i>
+                </div>
+                <span class="text-2xl font-bold tracking-tight">Pet<span class="text-orange-500 font-extrabold">Care</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-10 font-semibold text-slate-600">
+                <a href="#home" class="hover:text-orange-500 transition-colors">Inicio</a>
+                <a href="#tienda" class="hover:text-orange-500 transition-colors">Catálogo</a>
+                <a href="#nosotros" class="hover:text-orange-500 transition-colors">Nosotros</a>
+                <a href="#contacto" class="hover:text-orange-500 transition-colors">Contacto</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleCart()" class="relative bg-white border border-slate-200 p-3 rounded-full hover:bg-slate-50 transition shadow-sm">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-orange-500 text-white text-[11px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-orange-50 rounded-bl-[100px]"></div>
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white border border-orange-100 px-4 py-2 rounded-full shadow-sm">
+                    <span class="flex h-2 w-2 rounded-full bg-orange-500 animate-ping"></span>
+                    <span class="text-orange-700 text-sm font-bold uppercase tracking-widest">Premium Pet Store Honduras</span>
+                </div>
+                <h1 class="text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1]">
+                    Cuidamos lo que <br> <span class="text-orange-500">más amas.</span>
+                </h1>
+                <p class="text-xl text-slate-500 max-w-lg leading-relaxed">
+                    Productos importados de alta gama para mascotas exigentes. Calidad garantizada en cada entrega.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#tienda" class="btn-premium bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold text-center shadow-xl shadow-slate-200 hover:bg-orange-600">Explorar Catálogo</a>
+                    <a href="#contacto" class="btn-premium bg-white border border-slate-200 text-slate-700 px-10 py-5 rounded-2xl font-bold text-center hover:bg-slate-50">Soporte Directo</a>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=1000" alt="Pet Home" class="rounded-[40px] shadow-2xl border-[12px] border-white">
+                <div class="absolute -bottom-10 -left-10 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 hidden md:block">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-green-100 p-3 rounded-2xl"><i data-lucide="truck" class="text-green-600"></i></div>
+                        <div>
+                            <p class="font-bold text-slate-800">Envíos Rápidos</p>
+                            <p class="text-sm text-slate-500">A todo el país 🇭🇳</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tienda" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-16">
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-2">Nuestro Catálogo</h2>
+                    <p class="text-slate-500">Selección exclusiva de productos premium</p>
+                </div>
+                <div class="flex gap-4">
+                    <select id="filter-category" onchange="renderProducts()" class="bg-slate-50 border-none ring-1 ring-slate-200 rounded-2xl px-6 py-4 font-semibold focus:ring-2 focus:ring-orange-500 transition outline-none">
+                        <option value="all">Todo el inventario</option>
+                        <option value="Perros">Sección Canina</option>
+                        <option value="Gatos">Sección Felina</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 bg-slate-900 rounded-[40px] p-12 text-white relative overflow-hidden">
+                    <div class="relative z-10 space-y-6">
+                        <h3 class="text-4xl font-bold">Importación Directa y <br><span class="text-orange-400 text-5xl">Calidad Certificada</span></h3>
+                        <p class="text-slate-400 text-lg max-w-md leading-relaxed">En PetCare HN, no solo vendemos productos, seleccionamos bienestar. Cada artículo en nuestro catálogo pasa por un proceso de verificación para garantizar la seguridad de tu mejor amigo.</p>
+                        <div class="flex gap-4 pt-6">
+                            <div class="text-center bg-white/10 backdrop-blur px-6 py-4 rounded-3xl">
+                                <p class="text-2xl font-bold text-orange-400">100%</p>
+                                <p class="text-xs uppercase tracking-widest text-slate-300">Original</p>
+                            </div>
+                            <div class="text-center bg-white/10 backdrop-blur px-6 py-4 rounded-3xl">
+                                <p class="text-2xl font-bold text-orange-400">+2k</p>
+                                <p class="text-xs uppercase tracking-widest text-slate-300">Clientes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <i data-lucide="shield-check" class="absolute -right-10 -bottom-10 w-64 h-64 text-white/5"></i>
+                </div>
+                <div class="bg-orange-500 rounded-[40px] p-12 text-white flex flex-col justify-center items-center text-center">
+                    <i data-lucide="heart" class="w-16 h-16 mb-6 fill-white"></i>
+                    <h3 class="text-2xl font-extrabold mb-4 italic">"Atención de primera, mi perrito ama sus premios y llegaron súper rápido a Comayagua."</h3>
+                    <p class="font-bold">- Lic. Roberto Méndez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-slate-50 rounded-[50px] overflow-hidden shadow-sm border border-slate-100 grid md:grid-cols-2">
+                <div class="p-12 space-y-8">
+                    <h2 class="text-4xl font-extrabold">Hablemos <span class="text-orange-500">hoy.</span></h2>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white p-3 rounded-2xl shadow-sm"><i data-lucide="message-square" class="text-orange-500"></i></div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase">WhatsApp</p>
+                                <p class="font-bold">+504 9748-1966</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white p-3 rounded-2xl shadow-sm"><i data-lucide="mail" class="text-orange-500"></i></div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase">Email</p>
+                                <p class="font-bold">hola@petcare.hn</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='https://wa.me/50497481966'" class="flex items-center gap-3 font-bold text-orange-600">
+                        Abrir chat ahora <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+                <div class="bg-slate-100 p-12">
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Tu Nombre" class="w-full bg-white px-6 py-4 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-orange-500 outline-none">
+                        <textarea placeholder="¿En qué podemos ayudarte?" rows="4" class="w-full bg-white px-6 py-4 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-orange-500 outline-none"></textarea>
+                        <button type="button" class="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold shadow-lg">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-sidebar" class="fixed inset-0 z-[200] hidden">
+        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onclick="toggleCart()"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col transition-transform">
+            <div class="p-8 border-b flex justify-between items-center bg-slate-50">
+                <div>
+                    <h2 class="text-2xl font-extrabold tracking-tight">Tu Carrito</h2>
+                    <p class="text-sm text-slate-500">Revisa tu selección antes de enviar</p>
+                </div>
+                <button onclick="toggleCart()" class="bg-white p-2 rounded-full border border-slate-200"><i data-lucide="x"></i></button>
+            </div>
+            
+            <div id="cart-items" class="flex-1 overflow-y-auto p-8 space-y-6">
+                </div>
+
+            <div class="p-8 border-t space-y-6 bg-slate-50">
+                <div class="flex justify-between items-end">
+                    <span class="text-slate-500 font-medium">Subtotal estimado:</span>
+                    <span id="cart-total" class="text-3xl font-extrabold text-slate-900">L 0.00</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-5 rounded-2xl font-extrabold flex items-center justify-center gap-3 transition-all shadow-xl shadow-green-100 active:scale-95">
+                    <i data-lucide="send"></i> Enviar Pedido por WhatsApp
+                </button>
+                <p class="text-center text-[11px] text-slate-400 font-bold uppercase tracking-widest">Pago contra entrega o transferencia</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // BASE DE DATOS DE PRODUCTOS
+        const products = [
+            { id: 'HN-01', name: 'Alimento Pro-Plan Puppy', brand: 'Purina', type: 'Nutrición', size: '30 Lbs', price: 1680, category: 'Perros', img: 'https://images.unsplash.com/photo-1585491731314-728493cf3f24?auto=format&fit=crop&q=80&w=400' },
+            { id: 'HN-02', name: 'Fuente de Agua Inoxidable', brand: 'PetSafe', type: 'Accesorio', size: '2.5L', price: 950, category: 'Gatos', img: 'https://images.unsplash.com/photo-1563460716884-18a5fe2c5290?auto=format&fit=crop&q=80&w=400' },
+            { id: 'HN-03', name: 'Arnés Táctico K9', brand: 'Kong', type: 'Seguridad', size: 'L/XL', price: 540, category: 'Perros', img: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=400' },
+            { id: 'HN-04', name: 'Torre Rascador Multinivel', brand: 'CatLife', type: 'Mobiliario', size: '1.5m', price: 2100, category: 'Gatos', img: 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&q=80&w=400' },
+            { id: 'HN-05', name: 'Champú Hipoalergénico', brand: 'Vets', type: 'Higiene', size: '500ml', price: 320, category: 'Perros', img: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=400' },
+            { id: 'HN-06', name: 'Juguete Interactivo IQ', brand: 'Nina Ottosson', type: 'Juego', size: 'Medium', price: 420, category: 'Perros', img: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&q=80&w=400' }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('cart_petcare')) || [];
+
+        // RENDER DE PRODUCTOS
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const category = document.getElementById('filter-category').value;
+            grid.innerHTML = '';
+
+            products.filter(p => category === 'all' || p.category === category).forEach(product => {
+                grid.innerHTML += `
+                    <div class="product-card group bg-white rounded-[32px] border border-slate-100 p-2 overflow-hidden">
+                        <div class="relative h-72 rounded-[28px] overflow-hidden">
+                            <img src="${product.img}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-sm">
+                                <span class="text-[10px] font-extrabold text-slate-800 uppercase tracking-tighter">Disponible</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="text-[10px] font-bold text-orange-500 uppercase tracking-widest">${product.brand}</p>
+                                    <h3 class="font-bold text-lg text-slate-900">${product.name}</h3>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-400 mb-6">${product.type} • ${product.size}</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-black text-slate-900">L ${product.price.toLocaleString()}</span>
+                                <button onclick="addToCart('${product.id}')" class="bg-slate-900 text-white p-4 rounded-2xl hover:bg-orange-600 transition-all shadow-lg active:scale-90">
+                                    <i data-lucide="plus" class="w-5 h-5"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            lucide.createIcons();
+        }
+
+        // LÓGICA CARRITO
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const exists = cart.find(item => item.id === id);
+            if (exists) exists.quantity++;
+            else cart.push({ ...product, quantity: 1 });
+            saveAndRefresh();
+            toggleCart(true);
+        }
+
+        function toggleCart(open = null) {
+            const el = document.getElementById('cart-sidebar');
+            if (open === true) el.classList.remove('hidden');
+            else if (open === false) el.classList.add('hidden');
+            else el.classList.toggle('hidden');
+        }
+
+        function saveAndRefresh() {
+            localStorage.setItem('cart_petcare', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            saveAndRefresh();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            const countEl = document.getElementById('cart-count');
+            
+            container.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                count += item.quantity;
+                container.innerHTML += `
+                    <div class="flex gap-5 items-center bg-white p-4 rounded-3xl border border-slate-100 shadow-sm">
+                        <img src="${item.img}" class="w-20 h-20 object-cover rounded-2xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-slate-800 text-sm">${item.name}</h4>
+                            <p class="text-xs text-slate-400">L ${item.price} x ${item.quantity}</p>
+                        </div>
+                        <button onclick="removeFromCart('${item.id}')" class="text-slate-300 hover:text-red-500 transition-colors">
+                            <i data-lucide="trash-2" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            totalEl.innerText = `L ${total.toLocaleString()}`;
+            countEl.innerText = count;
+            lucide.createIcons();
+        }
+
+        // WHATSAPP CHECKOUT
+        function checkoutWhatsApp() {
+            if (cart.length === 0) return;
+            
+            let message = "¡Hola PetCare HN! 🐾\n";
+            message += "Me gustaría realizar un pedido de los siguientes productos:\n\n";
+            
+            let total = 0;
+            cart.forEach(item => {
+                message += `📦 *${item.name}*\n`;
+                message += `   Marca: ${item.brand}\n`;
+                message += `   Cant: ${item.quantity} | Subtotal: L ${item.price * item.quantity}\n`;
+                message += `   ID: ${item.id}\n\n`;
+                total += item.price * item.quantity;
+            });
+
+            message += `━━━━━━━━━━━━━━━━━━\n`;
+            message += `💰 *TOTAL ESTIMADO: L ${total.toLocaleString()}*\n`;
+            message += `━━━━━━━━━━━━━━━━━━\n\n`;
+            message += "¿Podrían confirmarme si tienen stock disponible y cuáles son los pasos para el envío? Gracias.";
+
+            window.open(`https://wa.me/50497481966?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        window.onload = () => {
+            renderProducts();
+            updateCartUI();
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
